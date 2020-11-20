@@ -29,23 +29,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-default techfont custom-navbar">
+<nav class="navbar navbar-expand-lg bg-light techfont">
     <div class="container">
-        <ul class="nav navbar-nav">
-            <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">Blog</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-        </ul>
+        <div class="navbar-nav align-items-center">
+            <a class="navbar-brand bigbrand loader" href="{% url 'post_list' %}">Blog</a>
+            <a class="nav-item nav-link loader" href="{% url 'about' %}">About</a>
+        </div>
 
-        <ul class="nav navbar-nav navbar-right">
+        <div class="navbar-nav align-items-center ml-auto">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'post_new' %}">New Post</a></li>
-                <li><a href="{% url 'post_draft_list' %}">Drafts</a></li>
-                <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span></a></li>
-                <li><a>Welcome: {{ user.username }}</a></li>
+                <a class="nav-item nav-link loader" href="{% url 'post_new' %}">New Post</a>
+                <a class="nav-item nav-link loader" href="{% url 'post_draft_list' %}">Drafts</a>
+                <a class="nav-item nav-link loader" href="{% url 'logout' %}">Logout</a>
+                <a class="loader">Welcome: {{ user.username }}</a>
             {% else %}
-                <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a></li>
+                <a class="nav-item nav-link loader" href="{% url 'login' %}">Login</a>
             {% endif %}
-        </ul>
+        </div>
     </div>
 </nav>
 
